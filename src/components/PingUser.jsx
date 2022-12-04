@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createRef } from "react";
 
-const PingUser = () => {
+const PingUser = ({ socket }) => {
   const inputRef = createRef();
 
   const submitHandler = async (e) => {
@@ -35,6 +35,13 @@ const PingUser = () => {
         />
         <button>Ping</button>
       </form>
+      <button
+        onClick={() => {
+          socket.emit("join-test-room");
+        }}
+      >
+        Join test room
+      </button>
     </div>
   );
 };
